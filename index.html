@@ -623,23 +623,30 @@ function updateVoiceButton(){
   if(btn) btn.textContent=voiceEnabled?'🔊 Voice: ON':'🔇 Voice: OFF';
 }
 
+let numberAudio=null;
+function playNumberAudio(number){
+  try{
+    if(numberAudio){ numberAudio.pause(); numberAudio.currentTime=0; }
+    numberAudio=new Audio(`sounds/${number}.mp3`);
+    numberAudio.preload='auto';
+    numberAudio.volume=1;
+    return numberAudio.play();
+  }catch(err){ return Promise.reject(err); }
+}
 function speakCalledNumber(number){
   if(!voiceEnabled || number===null || number===undefined) return;
-  if(!('speechSynthesis' in window)) return;
   if(String(lastSpokenNumber)===String(number)) return;
-
   lastSpokenNumber=number;
-
-  try{
-    window.speechSynthesis.cancel();
-    const speech=new SpeechSynthesisUtterance('Number ' + String(number));
-    speech.rate=0.85;
-    speech.pitch=1;
-    speech.volume=1;
-    window.speechSynthesis.speak(speech);
-  }catch(err){
-    console.warn('Voice failed:',err);
-  }
+  playNumberAudio(number).catch(err=>{
+    console.warn('MP3 voice failed, trying browser speech:',err);
+    try{
+      if(!('speechSynthesis' in window)) return;
+      window.speechSynthesis.cancel();
+      const speech=new SpeechSynthesisUtterance('Number ' + String(number));
+      speech.rate=0.85; speech.pitch=1; speech.volume=1;
+      window.speechSynthesis.speak(speech);
+    }catch(e){ console.warn('Voice failed:',e); }
+  });
 }
 
 function toggleVoice(){
