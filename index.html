@@ -265,95 +265,129 @@ button{cursor:pointer}
   .num{width:28px;height:28px;font-size:9px;border-radius:5px}
   .card{padding:14px}
 }
+</style>
 
-/* App/mobile shell */
-html,body{max-width:100%;overflow-x:hidden}
-button,input,select,textarea{max-width:100%}
-img,svg,canvas{max-width:100%}
-@media(max-width:760px){
-  body{font-size:14px;-webkit-text-size-adjust:100%}
-  .app{display:block!important;width:100%!important;min-width:0!important}
-  aside{
-    position:static!important;
-    width:100%!important;
-    height:auto!important;
-    min-height:0!important;
-    padding:10px!important;
-    border-right:0!important;
-    border-bottom:1px solid var(--border)!important;
-  }
-  .brand{margin-bottom:8px!important}
-  .nav{
-    display:flex!important;
-    gap:5px!important;
-    overflow-x:auto!important;
-    overflow-y:hidden!important;
-    white-space:nowrap!important;
-    padding-bottom:3px!important;
-    scrollbar-width:thin;
-  }
-  .nav button{
-    width:auto!important;
-    min-width:max-content!important;
-    white-space:nowrap!important;
-    margin:0!important;
-    padding:9px 11px!important;
-    font-size:13px!important;
-  }
-  main{width:100%!important;min-width:0!important;padding:10px!important}
-  .top{gap:8px!important;align-items:flex-start!important;flex-wrap:wrap!important}
-  .stats{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}
-  .card{min-width:0!important;padding:11px!important;border-radius:13px!important}
-  .toolbar{gap:7px!important}
-  .toolbar input,.toolbar select{width:100%!important;min-width:0!important}
-  table{width:100%!important}
-  .btn{font-size:12px!important;padding:8px 10px!important}
+<style>
+/* ===== Premium Tambola UI 2026 — visual override only ===== */
+:root{
+  --bg:#05070b !important;
+  --panel:#0d121a !important;
+  --panel2:#121a25 !important;
+  --text:#f7f9fc !important;
+  --muted:#8e9aad !important;
+  --accent:#f4c542 !important;
+  --accent2:#ffe084 !important;
+  --danger:#ff5f6d !important;
+  --success:#38d996 !important;
+  --border:#202b39 !important;
+  --blue:#5aa7ff !important;
+  --shadow:0 18px 55px rgba(0,0,0,.34);
+  --ring:0 0 0 3px rgba(244,197,66,.13);
 }
-@media(max-width:430px){
-  main{padding:7px!important}
-  .stats{grid-template-columns:repeat(2,minmax(0,1fr))!important}
-  .stat strong{font-size:20px!important}
+html{background:#05070b;color-scheme:dark}
+body{
+  background:
+    radial-gradient(circle at 12% -10%,rgba(244,197,66,.12),transparent 30%),
+    radial-gradient(circle at 100% 0%,rgba(90,167,255,.09),transparent 28%),
+    linear-gradient(145deg,#05070b 0%,#080d14 48%,#060910 100%) !important;
+  background-attachment:fixed;
+  color:var(--text) !important;
+  letter-spacing:.01em;
+}
+::selection{background:rgba(244,197,66,.32);color:#fff}
+::-webkit-scrollbar{width:9px;height:9px}
+::-webkit-scrollbar-track{background:#070b11}
+::-webkit-scrollbar-thumb{background:#263344;border-radius:999px;border:2px solid #070b11}
+::-webkit-scrollbar-thumb:hover{background:#35465c}
+.card,.loginbox,.modal-box{
+  background:linear-gradient(145deg,rgba(18,25,35,.95),rgba(10,15,23,.96)) !important;
+  border:1px solid rgba(255,255,255,.075) !important;
+  box-shadow:var(--shadow) !important;
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+}
+.card{border-radius:20px !important}
+.logo{
+  background:linear-gradient(145deg,#ffe586,#eebd31) !important;
+  color:#17120a !important;
+  box-shadow:0 8px 24px rgba(244,197,66,.2),inset 0 1px 0 rgba(255,255,255,.55);
+  border:1px solid rgba(255,255,255,.28);
+}
+.brand h1{font-weight:900;letter-spacing:-.02em}
+.muted{color:var(--muted) !important}
+.btn{
+  min-height:42px;
+  border-radius:12px !important;
+  border:1px solid rgba(255,255,255,.09) !important;
+  background:linear-gradient(180deg,#1b2532,#151d28) !important;
+  color:#f7f9fc !important;
+  box-shadow:0 7px 18px rgba(0,0,0,.18);
+  transition:transform .16s ease,filter .16s ease,border-color .16s ease,box-shadow .16s ease !important;
+}
+.btn:hover{transform:translateY(-1px);filter:brightness(1.08);border-color:#3b4a5e !important}
+.btn:active{transform:translateY(0) scale(.985)}
+.btn-primary{
+  background:linear-gradient(135deg,#ffe180,#efbc2e) !important;
+  border-color:#f4c542 !important;color:#17120a !important;
+  box-shadow:0 10px 25px rgba(244,197,66,.18) !important;
+}
+.btn-success{background:linear-gradient(135deg,#14382b,#18513b) !important;border-color:#267251 !important;color:#a8f3ce !important}
+.btn-danger{background:linear-gradient(135deg,#351a20,#491d25) !important;border-color:#71303a !important;color:#ffadb5 !important}
+input,select{
+  background:#090e15 !important;
+  border:1px solid #263343 !important;
+  color:#f7f9fc !important;
+  border-radius:12px !important;
+  min-height:44px;
+  transition:border-color .16s ease,box-shadow .16s ease,background .16s ease;
+}
+input:focus,select:focus{border-color:#9b8132 !important;box-shadow:var(--ring) !important;background:#0b111a !important;outline:none}
+input::placeholder{color:#657287}
+.badge,.status-pill{
+  background:linear-gradient(180deg,#151e29,#101720) !important;
+  border:1px solid #273445 !important;
+  color:#dce3ed !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.025);
+}
+table{border-spacing:0}
+th{color:#94a1b5 !important;text-transform:uppercase;letter-spacing:.055em;font-weight:800}
+tbody tr{transition:background .15s ease}
+tbody tr:hover{background:rgba(255,255,255,.025)}
+th,td{border-bottom-color:#202b39 !important}
+.dot.ok,.dot.live,.dot{transition:.2s ease}
+
+.shell{width:min(1240px,100%) !important;padding:18px 18px 42px !important}
+.topbar{position:sticky;top:0;z-index:30;padding:12px 0 14px !important;background:linear-gradient(180deg,rgba(5,7,11,.94),rgba(5,7,11,.70),transparent);backdrop-filter:blur(10px)}
+.join-card{position:relative;overflow:hidden}
+.join-card:before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:linear-gradient(90deg,transparent,#f4c542,#5aa7ff,transparent)}
+.join-card h2{font-size:30px !important;letter-spacing:-.035em}
+.notice{background:rgba(244,197,66,.055) !important;border-color:rgba(244,197,66,.18) !important;color:#cbd4df}
+.hero{gap:14px !important}
+.game-info,.current-card,.board-card{min-height:100%}
+.current-number{background:radial-gradient(circle at 34% 28%,#fff4c2,#f5cb54 42%,#d5a91f) !important;box-shadow:0 0 0 9px rgba(244,197,66,.045),0 22px 52px rgba(244,197,66,.20) !important}
+.remaining-prize-marquee{background:linear-gradient(90deg,#0d141d,#101923) !important;border-color:#263343 !important;box-shadow:0 10px 28px rgba(0,0,0,.18)}
+.remaining-prize-marquee .marquee-label{background:linear-gradient(135deg,#ffe180,#efbc2e) !important;color:#17120a !important}
+.ticket{background:linear-gradient(145deg,#fff,#e9edf3) !important;box-shadow:0 20px 45px rgba(0,0,0,.32) !important}
+.ticket td{border-color:#26303c !important}
+.ticket td.manual-marked{background:linear-gradient(145deg,#ffe58a,#f1c137) !important;border-color:#8a6c14 !important}
+.num{background:#0a1018 !important;border-color:#263343 !important;color:#9eabbc !important}
+.num.called{background:linear-gradient(145deg,#ffe180,#edbb30) !important;color:#17120a !important;box-shadow:0 6px 16px rgba(244,197,66,.18)}
+.claim{background:linear-gradient(145deg,#101823,#0b1119) !important;border-color:#263343 !important}
+@media(max-width:700px){
+ .shell{padding:10px 10px 28px !important}.topbar{padding-top:8px !important}
+ .hero{gap:10px !important}.card{border-radius:16px !important}.player-actions .btn{flex:1 1 calc(50% - 8px)}
+ .current-number{width:118px !important;height:118px !important;font-size:54px !important}
+ .ticket td{height:clamp(40px,12vw,56px) !important;font-size:clamp(15px,5vw,23px) !important}
 }
 
-@media(max-width:760px){
-  .hero{grid-template-columns:1fr!important;gap:9px!important}
-  .main-grid{grid-template-columns:1fr!important}
-  .board{
-    grid-template-columns:repeat(10,minmax(0,1fr))!important;
-    gap:3px!important;
-    width:100%!important;
-  }
-  .num{
-    width:100%!important;
-    min-width:0!important;
-    height:28px!important;
-    font-size:10px!important;
-  }
-  .ticket-wrap{width:100%!important;overflow:hidden!important}
-  .ticket{
-    width:100%!important;
-    max-width:100%!important;
-    min-width:0!important;
-    table-layout:fixed!important;
-    border-spacing:2px!important;
-    padding:5px!important;
-  }
-  .ticket td{
-    width:auto!important;
-    min-width:0!important;
-    height:34px!important;
-    font-size:12px!important;
-    padding:0!important;
-  }
-  .remaining-prize-marquee{width:100%!important}
-  .remaining-prize-marquee .marquee-label{font-size:11px!important;padding:8px!important}
-  .remaining-prize-marquee .marquee-window{width:calc(100% - 112px)!important}
-}
-@media(max-width:430px){
-  .ticket td{height:31px!important;font-size:11px!important}
-  .board .num{height:25px!important;font-size:9px!important}
-}
 
+/* Final app polish */
+button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #f4c542 !important;outline-offset:2px}
+@media(max-width:700px){
+  .card{backdrop-filter:blur(8px) !important;-webkit-backdrop-filter:blur(8px) !important;box-shadow:0 10px 30px rgba(0,0,0,.26) !important}
+  .topbar{backdrop-filter:blur(8px) !important;-webkit-backdrop-filter:blur(8px) !important}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto !important;animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}}
 </style>
 </head>
 <body>
@@ -377,9 +411,6 @@ img,svg,canvas{max-width:100%}
           <input id="gameCode" maxlength="20" placeholder="Example: TMB-1234" autocomplete="off">
         </div>
         <div class="field">
-          <label>Player Name</label>
-          </div>
-        <div class="field">
           <label>Ticket Number</label>
           <input id="ticketNo" placeholder="Your ticket number" autocomplete="off">
         </div>
@@ -388,7 +419,7 @@ img,svg,canvas{max-width:100%}
         <div class="error" id="joinError"></div>
 
         <div class="notice" style="margin-top:16px">
-          Your name and ticket number must match the details added on the host dashboard.
+          Your ticket number must be booked by the host before you can join this game.
         </div>
       </div>
     </section>
@@ -492,6 +523,21 @@ let claimsRef=null;
 let connectedCode='';
 const MARKS_KEY='tambolaPlayerManualMarks';
 let manualMarks=new Set();
+const autoClaimInFlight=new Set();
+
+function autoClaimStorageKey(prize){
+  if(!session)return '';
+  return `tambolaAutoClaim:${session.gameCode}:${session.ticket}:${String(prize||'').trim().toLowerCase()}`;
+}
+function hasAutoClaimAttempted(prize){
+  const k=autoClaimStorageKey(prize);
+  return !!(k && localStorage.getItem(k)==='1');
+}
+function markAutoClaimAttempted(prize){
+  const k=autoClaimStorageKey(prize);
+  if(k)localStorage.setItem(k,'1');
+}
+
 
 function marksStorageKey(){
   if(!session)return MARKS_KEY;
@@ -623,30 +669,23 @@ function updateVoiceButton(){
   if(btn) btn.textContent=voiceEnabled?'🔊 Voice: ON':'🔇 Voice: OFF';
 }
 
-let numberAudio=null;
-function playNumberAudio(number){
-  try{
-    if(numberAudio){ numberAudio.pause(); numberAudio.currentTime=0; }
-    numberAudio=new Audio(`sounds/${number}.mp3`);
-    numberAudio.preload='auto';
-    numberAudio.volume=1;
-    return numberAudio.play();
-  }catch(err){ return Promise.reject(err); }
-}
 function speakCalledNumber(number){
   if(!voiceEnabled || number===null || number===undefined) return;
+  if(!('speechSynthesis' in window)) return;
   if(String(lastSpokenNumber)===String(number)) return;
+
   lastSpokenNumber=number;
-  playNumberAudio(number).catch(err=>{
-    console.warn('MP3 voice failed, trying browser speech:',err);
-    try{
-      if(!('speechSynthesis' in window)) return;
-      window.speechSynthesis.cancel();
-      const speech=new SpeechSynthesisUtterance('Number ' + String(number));
-      speech.rate=0.85; speech.pitch=1; speech.volume=1;
-      window.speechSynthesis.speak(speech);
-    }catch(e){ console.warn('Voice failed:',e); }
-  });
+
+  try{
+    window.speechSynthesis.cancel();
+    const speech=new SpeechSynthesisUtterance('Number ' + String(number));
+    speech.rate=0.85;
+    speech.pitch=1;
+    speech.volume=1;
+    window.speechSynthesis.speak(speech);
+  }catch(err){
+    console.warn('Voice failed:',err);
+  }
 }
 
 function toggleVoice(){
@@ -685,26 +724,39 @@ function connectToGame(code){
 
   stateRef.on('value',snap=>{
     if(!snap.exists()){
+      // If the room is deleted/reset by Host, the saved player session is no longer valid.
+      if(session){
+        clearManualMarks();
+        localStorage.removeItem(SESSION_KEY);
+        session=null;
+        gameState=null;
+        disconnectGame();
+        showJoin();
+        setError('Game closed by host. Please join the new game.');
+        return;
+      }
       gameState=null;
-      if(session){showDashboard();$('#topStatus').textContent='Game unavailable';$('#gameMessage').textContent='This game is not available.';}
       return;
     }
 
     const nextGameState=snap.val();
     const wasPlaying=!!(gameState && gameState.started);
     const gameEnded=wasPlaying && !nextGameState.started;
+    const forcedLogout=
+      nextGameState?.ended===true ||
+      nextGameState?.forcePlayerLogout===true ||
+      nextGameState?.endReason==='new_game_code_generated';
 
-    // Only log out when the host ends/resets an already-running game.
-    // Refreshing the browser does NOT clear tambolaPlayerSession,
-    // so a player stays logged in during an active game.
-    if(session && gameEnded){
+    // Host-generated new code must log out EVERY player, even if the old game
+    // was still in Waiting/Ready state and had never started.
+    if(session && (forcedLogout || gameEnded)){
       clearManualMarks();
-      localStorage.removeItem('tambolaPlayerSession');
+      localStorage.removeItem(SESSION_KEY);
       session=null;
       gameState=null;
       disconnectGame();
       showJoin();
-      setError('Game over. Please join the next game.');
+      setError('Host created a new game. Please join with the new game code.');
       return;
     }
 
@@ -722,10 +774,30 @@ function connectToGame(code){
       speakCalledNumber(newCurrent);
     }
 
-    if(session && !findRegisteredPlayer(gameState,session.name,session.ticket)){
-      $('#topStatus').textContent='Registration removed';
-      $('#gameMessage').textContent='Your player registration was removed by the host.';
-      return;
+    if(session){
+      const currentPlayer=findRegisteredPlayer(gameState,session.name,session.ticket);
+
+      if(!currentPlayer){
+        clearManualMarks();
+        localStorage.removeItem(SESSION_KEY);
+        session=null;
+        gameState=null;
+        disconnectGame();
+        showJoin();
+        setError('Your ticket registration was removed by the host.');
+        return;
+      }
+
+      if(String(currentPlayer?.status||'unbooked').toLowerCase()!=='booked'){
+        clearManualMarks();
+        localStorage.removeItem(SESSION_KEY);
+        session=null;
+        gameState=null;
+        disconnectGame();
+        showJoin();
+        setError('Your ticket is not booked. Please contact the host.');
+        return;
+      }
     }
     renderAll();
   });
@@ -743,8 +815,20 @@ async function joinGame(){
     const snap=await firebaseDb.ref(`tambolaRooms/${code}/game`).once('value');
     if(!snap.exists())return setError('Invalid game code or game not created by host yet.');
     const state=snap.val();
+
+    // Do not create a session for a room that Host has explicitly closed.
+    if(state?.ended===true || state?.forcePlayerLogout===true || state?.endReason==='new_game_code_generated'){
+      return setError('This game code has been closed by the host. Please enter the new game code.');
+    }
+
     const p=findRegisteredPlayer(state,name,ticket);
     if(!p)return setError('Ticket number does not match the host list.');
+
+    // Entry is allowed only after Host marks this ticket as Booked.
+    if(String(p?.status||'unbooked').toLowerCase()!=='booked'){
+      return setError('This ticket is not booked yet. Please contact the host.');
+    }
+
     session={gameCode:code,name:'',ticket:String(p.ticket),joinedAt:Date.now()};
     saveSession();
     adminPlayerEvent('player_joined',{ticket:String(p.ticket)});
@@ -755,10 +839,19 @@ async function joinGame(){
 
 function renderTicket(state){
   const ticket=generateTicket(String(session.ticket));
-  const body=$('#ticketBody');body.innerHTML='';let marked=0;
+  const body=$('#ticketBody');
+  body.innerHTML='';
+
+  const calledSet=new Set((state.called||[]).map(Number));
+  const autoMarked=ticketNumbers(ticket).filter(n=>calledSet.has(Number(n)));
+  manualMarks=new Set(autoMarked);
+  saveManualMarks();
+
+  let marked=0;
 
   ticket.forEach(row=>{
     const tr=document.createElement('tr');
+
     row.forEach(v=>{
       const td=document.createElement('td');
 
@@ -768,44 +861,29 @@ function renderTicket(state){
       }else{
         td.textContent=v;
 
-        if(manualMarks.has(v)){
+        if(calledSet.has(Number(v))){
           td.classList.add('manual-marked');
           marked++;
+          td.title='Called by host — automatically ticked';
+        }else{
+          td.title='Waiting for this number to be called';
         }
 
-        td.title=(state.called||[]).includes(v)
-          ? 'Called number — tap to mark/unmark'
-          : 'This number has not been called yet';
-
-        td.onclick=()=>{
-          // Ticket never marks itself automatically.
-          // Player must tap, and only a number already called by the host can be marked.
-          if(!(gameState?.called||[]).includes(v)){
-            const msg=$('#gameMessage');
-            if(msg){
-              msg.textContent=`Number ${v} has not been called yet.`;
-              setTimeout(()=>{ if(gameState) renderStatus(gameState); },1200);
-            }
-            return;
-          }
-
-          if(manualMarks.has(v))manualMarks.delete(v);
-          else manualMarks.add(v);
-
-          saveManualMarks();
-          renderTicket(gameState);
-        };
+        // Ticket marking is automatic. Player cannot manually tick/untick numbers.
+        td.onclick=null;
       }
 
       tr.appendChild(td);
     });
+
     body.appendChild(tr);
   });
 
-  $('#ticketMatch').textContent=`${marked} manually marked`;
+  $('#ticketMatch').textContent=`${marked} auto ticked`;
   $('#ticketOwner').textContent=`Ticket ${session.ticket}`;
-  $('#ticketMeta').textContent='Tap called numbers to mark';
+  $('#ticketMeta').textContent='Called numbers tick automatically';
 }
+
 function renderRecent(state){
   const r=$('#recentCalls');
   r.innerHTML='';
@@ -917,6 +995,90 @@ async function submitClaim(prize){
   }
 }
 
+
+async function submitAutoClaim(prize){
+  if(!firebaseDb||!gameState||!session)return false;
+  if(!gameState.started||gameState.paused)return false;
+  if(autoClaimInFlight.has(prize)||hasAutoClaimAttempted(prize))return false;
+
+  const active=playerClaims.find(c=>
+    norm(c.ticket)===norm(session.ticket) &&
+    c.prize===prize &&
+    c.status!=='rejected'
+  );
+  if(active){
+    markAutoClaimAttempted(prize);
+    return false;
+  }
+
+  const ticketData=generateTicket(String(session.ticket));
+  const calledSet=new Set((gameState.called||[]).map(Number));
+  const markedNumbers=ticketNumbers(ticketData)
+    .filter(n=>calledSet.has(Number(n)))
+    .sort((a,b)=>a-b);
+
+  const validation=validatePrizeClaim(prize,ticketData,markedNumbers);
+
+  // Auto-claim only prize types this player app knows how to verify safely.
+  if(!validation.known || validation.valid!==true)return false;
+
+  autoClaimInFlight.add(prize);
+
+  const id=Date.now()+Math.floor(Math.random()*1000);
+  const claim={
+    id,
+    player:'',
+    ticket:session.ticket,
+    prize,
+    status:'pending',
+    time:new Date().toLocaleString(),
+    ticketData,
+    markedNumbers,
+    validationKnown:validation.known,
+    validationValid:validation.valid,
+    validationLabel:validation.label,
+    automatic:true
+  };
+
+  try{
+    await firebaseDb.ref(`tambolaRooms/${session.gameCode}/claims/${id}`).set(claim);
+    markAutoClaimAttempted(prize);
+
+    adminPlayerEvent('claim_submitted',{
+      ticket:String(session.ticket),
+      prize,
+      validationLabel:validation.label,
+      validationValid:validation.valid,
+      markedNumbers,
+      automatic:true
+    });
+
+    return true;
+  }catch(err){
+    console.error('Automatic claim failed:',err);
+    return false;
+  }finally{
+    autoClaimInFlight.delete(prize);
+  }
+}
+
+function autoClaimEligiblePrizes(state){
+  if(!state?.started || state?.paused || !session)return;
+
+  const prizes=Array.isArray(state.prizeTypes)?state.prizeTypes:[];
+  prizes.forEach(prize=>{
+    const existing=playerClaims.find(c=>
+      norm(c.ticket)===norm(session.ticket) &&
+      c.prize===prize &&
+      c.status!=='rejected'
+    );
+
+    if(!existing && !hasAutoClaimAttempted(prize)){
+      submitAutoClaim(prize);
+    }
+  });
+}
+
 function renderRemainingPrizes(state){
   const track=$('#remainingPrizeTrack');
   if(!track)return;
@@ -1025,7 +1187,7 @@ function renderAll(){
   if(!session)return showJoin();
   showDashboard();
   if(!gameState){$('#topStatus').textContent='Connecting';$('#statusDot').className='dot';$('#gameMessage').textContent='Connecting to the host game...';return;}
-  renderGameState(gameState);renderTicket(gameState);renderRecent(gameState);renderBoard(gameState);renderRemainingPrizes(gameState);renderClaims(gameState);
+  renderGameState(gameState);renderTicket(gameState);renderRecent(gameState);renderBoard(gameState);renderRemainingPrizes(gameState);renderClaims(gameState);autoClaimEligiblePrizes(gameState);
 }
 
 $('#joinBtn').onclick=joinGame;
@@ -1053,5 +1215,7 @@ initFirebase();
 autofillGameCodeFromLink();
 if(session){showDashboard();connectToGame(session.gameCode)}else showJoin();
 </script>
+
+
 </body>
 </html>
